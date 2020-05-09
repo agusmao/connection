@@ -6,8 +6,15 @@ func _on_ConnectionNode_body_entered(body):
 	get_tree().call_group("GameController", "addConnection", self, ConnectionTypes.NORMAL)
 	isConnected = !isConnected
 	if isConnected == true:
-		$AnimatedSprite.play("energized")
+		$AnimatedSprite.play("boot")
 		$BlipSound.play()
 	else:
-		$AnimatedSprite.play("deactivated")
+		$AnimatedSprite.play("deactivating")
 		$Shutdown.play()
+
+
+func _on_AnimatedSprite_animation_finished() -> void:
+	if $AnimatedSprite.animation == "boot":
+		$AnimatedSprite.play("energized")
+	elif $AnimatedSprite.animation == "deactivating":
+		$AnimatedSprite.play("deactivated")

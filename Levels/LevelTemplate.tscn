@@ -5,6 +5,7 @@
 [ext_resource path="res://Levels/LevelTemplate.gd" type="Script" id=3]
 [ext_resource path="res://Items/NormalNode.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Items/TargetNode.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/audio/earcing.tres" type="AudioStream" id=6]
 [ext_resource path="res://Items/Blocker.tscn" type="PackedScene" id=6]
 
 [node name="LevelTemplate" type="Node2D"]
@@ -31,6 +32,10 @@ position = Vector2( 634.987, -34.9993 )
 
 [node name="TargetNode" parent="Nodes" instance=ExtResource( 5 )]
 position = Vector2( 1089.98, 24.9995 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
 
 [node name="Blockers" type="Node" parent="."]
 

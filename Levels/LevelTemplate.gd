@@ -6,7 +6,7 @@ const ConnectionTypes = preload("res://Globals/ConnectionTypes.gd").ConnectionTy
 
 const CONECTION_COLOR = "b92121"
 
-const MAX_DISTANCE = 400
+const MAX_DISTANCE = 300
 
 var connected_nodes = []
 var playerIsConnected = false
@@ -23,6 +23,9 @@ func _process(delta):
 	
 func _physics_process(delta):
 	if someConnectionCrossBlocker():
+		for i in range(0, connected_nodes.size()):
+			if connected_nodes[i].has_method("toggleConnection"):
+				connected_nodes[i].toggleConnection(false)
 		connected_nodes.clear()
 	
 func someConnectionCrossBlocker():
@@ -61,17 +64,24 @@ func addConnection(node, type):
 	if not connected_nodes.has(node):
 		connected_nodes.append(node)
 		playerIsConnected = true
+		if type == ConnectionTypes.NORMAL:
+			node.toggleConnection(true)
 	else:
 		# In case the player it is disconected, the player can reconect to node
 		# but ignore the nodes ahead of this one
 		if not playerIsConnected:
 			var nodePosition = connected_nodes.find(node, 0)
+			for i in range(nodePosition+1, connected_nodes.size()):
+				if connected_nodes[i].has_method("toggleConnection"):
+					connected_nodes[i].toggleConnection(false)
 			connected_nodes = connected_nodes.slice(0, nodePosition)
 			playerIsConnected = true
 		# this else remove if the player touches a already connected node, if 
 		# it is the last one
 		elif connected_nodes[connected_nodes.size() - 1] == node:
 			connected_nodes.remove(connected_nodes.size() -1)
+			if node.has_method("toggleConnection"):
+				node.toggleConnection(false)
 
 func endGame():
 	# Calls the endgame UI

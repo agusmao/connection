@@ -6,6 +6,7 @@
 [ext_resource path="res://Items/NormalNode.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Items/TargetNode.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/audio/earcing.tres" type="AudioStream" id=6]
+[ext_resource path="res://Items/Blocker.tscn" type="PackedScene" id=6]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 3 )
@@ -35,3 +36,8 @@ position = Vector2( 1089.98, 24.9995 )
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
+
+[node name="Blockers" type="Node" parent="."]
+
+[node name="Blocker" parent="Blockers" instance=ExtResource( 6 )]
+position = Vector2( 386.659, -188.33 )

@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/collegiate/CollegiateInsideFLF.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://source/StartButton.gd" type="Script" id=2]
+[ext_resource path="res://source/FadeIn.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0705882, 0.0705882, 0.0705882, 1 ), Color( 0.0705882, 0.0705882, 0.0705882, 0 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="Button" parent="."]
+anchor_left = 0.041
+anchor_top = 0.614
+anchor_right = 0.959
+anchor_bottom = 0.846
+margin_left = 244.381
+margin_top = 53.0209
+margin_right = -241.651
+margin_bottom = -55.179
+custom_fonts/font = SubResource( 2 )
+text = "Start game"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game Name Here!" type="Label" parent="."]
+anchor_top = 0.112
+anchor_right = 1.0
+anchor_bottom = 0.391
+margin_left = 80.0
+margin_top = 64.0607
+margin_right = -80.0
+margin_bottom = -62.3393
+custom_fonts/font = SubResource( 1 )
+text = "Game Name Here!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="By" type="Label" parent="."]
+anchor_left = 0.635
+anchor_top = 0.79
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 45.7599
+margin_top = 39.0
+margin_right = -78.0
+margin_bottom = -39.0
+text = "By:
+Felipe Saruhashi
+Arthur Gusmão"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeIn" type="ColorRect" parent="."]
+anchor_right = 0.992
+anchor_bottom = 0.992
+margin_right = 0.191956
+margin_bottom = -0.200012
+mouse_filter = 2
+color = Color( 0.0705882, 0.0705882, 0.0705882, 0 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeIn"]
+anims/fade_in = SubResource( 3 )
+anims/fade_out = SubResource( 4 )
+[connection signal="pressed" from="StartButton" to="FadeIn" method="_on_StartButton_pressed"]
+[connection signal="animation_finished" from="FadeIn/AnimationPlayer" to="StartButton" method="_on_Fade_In_AnimationPlayer_animation_finished"]

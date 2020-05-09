@@ -1,5 +1,7 @@
 extends Node2D
 
+const ConnectionTypes = preload("res://Globals/ConnectionTypes.gd").ConnectionTypes
+
 const CONECTION_COLOR = "b92121"
 
 var connected_nodes = []
@@ -10,7 +12,12 @@ func _ready():
 func _process(delta):
 	update()
 
-func addConnection(node):
+func addConnection(node, type):
+	# if there is no connection, will only create a conection if the node
+	# it is a source
+	if connected_nodes.size() == 0 and ConnectionTypes.SOURCE != type:
+		return
+		
 	if not connected_nodes.has(node):
 		connected_nodes.append(node)
 

@@ -13,6 +13,7 @@ script = ExtResource( 3 )
 
 [node name="ConnectionNode" parent="Nodes" instance=ExtResource( 2 )]
 position = Vector2( 172.59, -137.104 )
+type = 0
 
 [node name="ConnectionNode2" parent="Nodes" instance=ExtResource( 2 )]
 position = Vector2( 367.762, 51.6158 )
@@ -22,3 +23,4 @@ position = Vector2( 662.94, -56.4548 )
 
 [node name="ConnectionNode4" parent="Nodes" instance=ExtResource( 2 )]
 position = Vector2( 824.239, 172.59 )
+type = 2

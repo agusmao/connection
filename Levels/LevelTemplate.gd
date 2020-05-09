@@ -4,13 +4,20 @@ const ConnectionTypes = preload("res://Globals/ConnectionTypes.gd").ConnectionTy
 
 const CONECTION_COLOR = "b92121"
 
+const MAX_DISTANCE = 400
+
 var connected_nodes = []
+var playerIsConnected = false
 
 func _ready():
 	add_to_group("GameController")
 
 func _process(delta):
 	update()
+	
+	# if distance from the last node and the player it is too far, cut connection with the player
+	if connected_nodes.size() > 0 and $Player.global_position.distance_to(connected_nodes[connected_nodes.size() - 1].global_position) > MAX_DISTANCE:
+		playerIsConnected = false
 	
 func _physics_process(delta):
 	if someConnectionCrossBlocker():
@@ -46,11 +53,22 @@ func addConnection(node, type):
 	# it is a source
 	if connected_nodes.size() == 0 and ConnectionTypes.SOURCE != type:
 		return
-		
+	
+	# if we don't have this node already on connected nodes, we just add it
 	if not connected_nodes.has(node):
 		connected_nodes.append(node)
-	elif connected_nodes[connected_nodes.size() - 1] == node:
-		connected_nodes.remove(connected_nodes.size() -1)
+		playerIsConnected = true
+	else:
+		# In case the player it is disconected, the player can reconect to node
+		# but ignore the nodes ahead of this one
+		if not playerIsConnected:
+			var nodePosition = connected_nodes.find(node, 0)
+			connected_nodes = connected_nodes.slice(0, nodePosition)
+			playerIsConnected = true
+		# this else remove if the player touches a already connected node, if 
+		# it is the last one
+		elif connected_nodes[connected_nodes.size() - 1] == node:
+			connected_nodes.remove(connected_nodes.size() -1)
 
 func _draw():
 	var n1
@@ -63,9 +81,8 @@ func _draw():
 			
 			drawConnection(n1.position, n2.position)
 			
-	if connected_nodes.size() > 0:
+	if connected_nodes.size() > 0 and playerIsConnected:
 		var last_connection = connected_nodes[connected_nodes.size() -1]
-		
 		drawConnection($Player.position, last_connection.position)
 		
 

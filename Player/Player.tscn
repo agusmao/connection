@@ -47,5 +47,4 @@ current = true
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 6 )
 animation = "moving"
-frame = 2
 playing = true

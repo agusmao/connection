@@ -27,6 +27,7 @@ func _physics_process(delta):
 			if connected_nodes[i].has_method("toggleConnection"):
 				connected_nodes[i].toggleConnection(false)
 		connected_nodes.clear()
+		playerIsConnected = false
 	
 func someConnectionCrossBlocker():
 	var n1
@@ -62,10 +63,16 @@ func addConnection(node, type):
 	
 	# if we don't have this node already on connected nodes, we just add it
 	if not connected_nodes.has(node):
-		connected_nodes.append(node)
-		playerIsConnected = true
-		if type == ConnectionTypes.NORMAL:
+		if type == ConnectionTypes.SOURCE:
+			playerIsConnected = true
+			connected_nodes.append(node)
+		elif type == ConnectionTypes.NORMAL && playerIsConnected:
 			node.toggleConnection(true)
+			connected_nodes.append(node)
+		elif type == ConnectionTypes.GOAL && playerIsConnected:
+			connected_nodes.append(node)
+			# If we reach the end level when connected
+			endGame()
 	else:
 		# In case the player it is disconected, the player can reconect to node
 		# but ignore the nodes ahead of this one

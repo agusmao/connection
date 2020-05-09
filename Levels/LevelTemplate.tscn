@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Items/SourceNode.tscn" type="PackedScene" id=2]
@@ -7,6 +7,16 @@
 [ext_resource path="res://Items/TargetNode.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Items/Blocker.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/audio/earcing.tres" type="AudioStream" id=7]
+[ext_resource path="res://assets/fonts/collegiate/CollegiateBlackFLF.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/fonts/collegiate/CollegiateInsideFLF.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://source/EndGameUI.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 9 )
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 3 )
@@ -42,3 +52,40 @@ position = Vector2( 386.659, -188.33 )
 stream = ExtResource( 7 )
 volume_db = -25.0
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndGameUI" type="Panel" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 260.877
+margin_top = 86.6208
+margin_right = -245.123
+margin_bottom = -97.3792
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WonLabel" type="Label" parent="CanvasLayer/EndGameUI"]
+anchor_right = 1.0
+anchor_bottom = 0.461
+margin_left = 157.295
+margin_top = 76.7478
+margin_right = -156.705
+margin_bottom = -73.0282
+custom_fonts/font = SubResource( 1 )
+text = "You won!"
+
+[node name="NextLevelButton" type="Button" parent="CanvasLayer/EndGameUI"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 199.069
+margin_top = 70.3231
+margin_right = -195.931
+margin_bottom = -114.677
+custom_fonts/font = SubResource( 2 )
+text = "Next level"
+[connection signal="pressed" from="CanvasLayer/EndGameUI/NextLevelButton" to="." method="_on_NextLevelButton_pressed"]

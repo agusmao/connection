@@ -1,5 +1,7 @@
 extends Node2D
 
+export(String) var currentLevel = "1"
+
 const ConnectionTypes = preload("res://Globals/ConnectionTypes.gd").ConnectionTypes
 
 const CONECTION_COLOR = "b92121"
@@ -70,6 +72,12 @@ func addConnection(node, type):
 		elif connected_nodes[connected_nodes.size() - 1] == node:
 			connected_nodes.remove(connected_nodes.size() -1)
 
+func endGame():
+	# Calls the endgame UI
+	get_node("CanvasLayer/EndGameUI").show()
+	# Disable the users input
+	get_node("Player").isMovementAllowed = false
+
 func _draw():
 	var n1
 	var n2
@@ -88,3 +96,8 @@ func _draw():
 
 func drawConnection(pos1, pos2):
 	draw_line(pos1, pos2, CONECTION_COLOR)
+
+
+func _on_NextLevelButton_pressed() -> void:
+	# Load the next level
+	get_tree().change_scene("res://Levels/LevelTemplate.tscn") # Use the currentLevel var as reference

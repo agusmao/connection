@@ -20,6 +20,8 @@ func addConnection(node, type):
 		
 	if not connected_nodes.has(node):
 		connected_nodes.append(node)
+	elif connected_nodes[connected_nodes.size() - 1] == node:
+		connected_nodes.remove(connected_nodes.size() -1)
 
 func _draw():
 	var n1

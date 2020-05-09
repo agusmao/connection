@@ -34,6 +34,7 @@ func someConnectionCrossBlocker():
 			n2 = connected_nodes[i + 1]
 			if haveBlocker(n1.global_position, n2.global_position):
 				return true
+	if connected_nodes.size() > 0:
 		n1 = connected_nodes[connected_nodes.size() - 1]
 		n2 = $Player
 		if haveBlocker(n1.global_position, n2.global_position):

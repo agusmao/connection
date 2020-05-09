@@ -5,8 +5,11 @@ const INERTIA = 0.16
 const MAX_SPEED = 500
 
 var motion = Vector2()
+var isMovementAllowed = true
 
 func _physics_process(delta):
+	if isMovementAllowed == false:
+		return
 	
 	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
 		motion.x = clamp(motion.x - SPEED, -MAX_SPEED, 0)

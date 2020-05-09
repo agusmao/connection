@@ -19,12 +19,6 @@ config/name="Connection"
 run/main_scene="res://Levels/LevelTemplate.tscn"
 config/icon="res://icon.png"
 
-[layer_names]
-
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Connections"
-2d_physics/layer_3="Blockers"
-
 [rendering]
 
 environment/default_environment="res://default_env.tres"

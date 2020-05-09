@@ -7,5 +7,7 @@ func _on_ConnectionNode_body_entered(body):
 	isConnected = !isConnected
 	if isConnected == true:
 		$AnimatedSprite.play("energized")
+		$BlipSound.play()
 	else:
 		$AnimatedSprite.play("deactivated")
+		$Shutdown.play()

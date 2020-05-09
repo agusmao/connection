@@ -11,7 +11,8 @@ func _process(delta):
 	update()
 
 func addConnection(node):
-	connected_nodes.append(node)
+	if not connected_nodes.has(node):
+		connected_nodes.append(node)
 
 func _draw():
 	var n1

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/NormalNode.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Items/SourceNode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Items/TargetNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Items/Blocker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Level1.gd" type="Script" id=6]
+
+[node name="Level1" instance=ExtResource( 1 )]
+script = ExtResource( 6 )
+
+[node name="SourceNode" parent="Nodes" index="0" instance=ExtResource( 3 )]
+position = Vector2( 388.627, -124.822 )
+
+[node name="NormalNode" parent="Nodes" index="1" instance=ExtResource( 2 )]
+position = Vector2( 743.454, 151.532 )
+
+[node name="NormalNode2" parent="Nodes" index="2" instance=ExtResource( 2 )]
+position = Vector2( 568.245, 66.2953 )
+
+[node name="NormalNode3" parent="Nodes" index="3" instance=ExtResource( 2 )]
+position = Vector2( 265.181, 71.0307 )
+
+[node name="NormalNode4" parent="Nodes" index="4" instance=ExtResource( 2 )]
+position = Vector2( 752.925, -127.855 )
+
+[node name="TargetNode" parent="Nodes" index="5" instance=ExtResource( 4 )]
+position = Vector2( 913.927, -61.5599 )
+
+[node name="Blocker" parent="Blockers" index="0" instance=ExtResource( 5 )]
+position = Vector2( 570.322, -202.638 )
+
+[node name="Blocker2" parent="Blockers" index="1" instance=ExtResource( 5 )]
+position = Vector2( 632.792, -92.4935 )
+
+[node name="Blocker3" parent="Blockers" index="2" instance=ExtResource( 5 )]
+position = Vector2( 738.005, 45.5985 )

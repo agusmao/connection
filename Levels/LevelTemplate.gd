@@ -3,10 +3,9 @@ extends Node2D
 export(String) var currentLevel = "1"
 
 const ConnectionTypes = preload("res://Globals/ConnectionTypes.gd").ConnectionTypes
-
-const CONECTION_COLOR = "b92121"
-
-const MAX_DISTANCE = 300
+const CONECTION_COLOR = "1f62ff"
+const MAX_DISTANCE = 600
+const WIRE_WIDTH = 4
 
 var connected_nodes = []
 var playerIsConnected = false
@@ -113,9 +112,17 @@ func _draw():
 		
 
 func drawConnection(pos1, pos2):
-	draw_line(pos1, pos2, CONECTION_COLOR)
+	var distance = pos1.distance_to(pos2)
+	
+	var lineWidth = clamp((MAX_DISTANCE/(distance * 2) ) * WIRE_WIDTH, 0.2, WIRE_WIDTH * 4)
+	
+	draw_line(pos1, pos2, CONECTION_COLOR, lineWidth)
 
 
 func _on_NextLevelButton_pressed() -> void:
 	# Load the next level
-	get_tree().change_scene("res://Levels/LevelTemplate.tscn") # Use the currentLevel var as reference
+	onNextLevel()
+	# get_tree().change_scene("res://Levels/LevelTemplate.tscn") # Use the currentLevel var as reference
+	
+func onNextLevel():
+	pass

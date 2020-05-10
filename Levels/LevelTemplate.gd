@@ -1,6 +1,6 @@
 extends Node2D
 
-export(String) var currentLevel = "1"
+export(String) var nextLevel = "1"
 
 const ConnectionTypes = preload("res://Globals/ConnectionTypes.gd").ConnectionTypes
 const CONECTION_COLOR = "1f62ff"
@@ -125,4 +125,4 @@ func _on_NextLevelButton_pressed() -> void:
 	# get_tree().change_scene("res://Levels/LevelTemplate.tscn") # Use the currentLevel var as reference
 	
 func onNextLevel():
-	pass
+	get_tree().change_scene("res://Levels/"+ nextLevel) # Use the currentLevel var as reference

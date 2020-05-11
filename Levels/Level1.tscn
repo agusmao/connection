@@ -179,9 +179,13 @@ position = Vector2( 913.927, -61.5599 )
 
 [node name="Blocker" parent="Blockers" index="0" instance=ExtResource( 5 )]
 position = Vector2( 570.322, -202.638 )
+id = 1
+connected_to = 2
 
 [node name="Blocker2" parent="Blockers" index="1" instance=ExtResource( 5 )]
 position = Vector2( 632.792, -92.4935 )
+id = 2
 
 [node name="Blocker3" parent="Blockers" index="2" instance=ExtResource( 5 )]
 position = Vector2( 738.005, 45.5985 )
+id = 3

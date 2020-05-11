@@ -4,14 +4,21 @@ export(String) var currentLevel = "1"
 
 const ConnectionTypes = preload("res://Globals/ConnectionTypes.gd").ConnectionTypes
 const CONECTION_COLOR = "1f62ff"
+const CONECTION_BLOCKER_COLOR = "fa160a"
 const MAX_DISTANCE = 600
 const WIRE_WIDTH = 4
 
 var connected_nodes = []
 var playerIsConnected = false
+var blockers_connected = []
 
 func _ready():
 	add_to_group("GameController")
+	
+	for child1 in $Blockers.get_children():
+		for child2 in $Blockers.get_children():
+			if child2.id == child1.connected_to:
+				blockers_connected.append([child1, child2])
 
 func _process(delta):
 	update()
@@ -50,9 +57,39 @@ func haveBlocker(pos1, pos2):
 	var obstacle = space.intersect_ray(pos1, pos2, [], 4, true, true)
 	
 	if not obstacle:
+		for c in blockers_connected:
+			var b1pos = c[0].position
+			var b2pos = c[1].position
+			
+			var res = Geometry.line_intersects_line_2d(b1pos, b2pos - b1pos, pos1, pos2 - pos1)
+			if res and isPosInLine(res, b1pos, b2pos) and isPosInLine(res, pos1, pos2):
+				return true
+
 		return false
 	else:
 		return true
+
+func isPosInLine(pos, from, to):
+	var fromX
+	var toX
+	var fromY
+	var toY
+	
+	if from.x < to.x:
+		fromX = from.x
+		toX = to.x
+	else:
+		fromX = to.x
+		toX = from.x
+
+	if from.y < to.y:
+		fromY = from.y
+		toY = to.y
+	else:
+		fromY = to.y
+		toY = from.y
+	
+	return pos.x >= fromX and pos.x <= toX and pos.y >= fromY and pos.y <= toY
 
 func addConnection(node, type):
 	# if there is no connection, will only create a conection if the node
@@ -110,14 +147,20 @@ func _draw():
 		var last_connection = connected_nodes[connected_nodes.size() -1]
 		drawConnection($Player.position, last_connection.position)
 		
+	for blockPairs in blockers_connected:
+		drawBlockerConnection(blockPairs[0].position, blockPairs[1].position)
+		
 
 func drawConnection(pos1, pos2):
 	var distance = pos1.distance_to(pos2)
-	
 	var lineWidth = clamp((MAX_DISTANCE/(distance * 2) ) * WIRE_WIDTH, 0.2, WIRE_WIDTH * 4)
-	
 	draw_line(pos1, pos2, CONECTION_COLOR, lineWidth)
-
+	
+func drawBlockerConnection(pos1, pos2):
+	var distance = pos1.distance_to(pos2)
+	if distance > 0:
+		var lineWidth = clamp((MAX_DISTANCE/(distance * 2) ) * WIRE_WIDTH, 0.2, WIRE_WIDTH * 4)
+		draw_line(pos1, pos2, CONECTION_BLOCKER_COLOR, lineWidth)
 
 func _on_NextLevelButton_pressed() -> void:
 	# Load the next level

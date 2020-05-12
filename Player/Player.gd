@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
-const SPEED = 100
+const SPEED = 15
 const INERTIA = 0.16
 const MAX_SPEED = 500
 
 var motion = Vector2()
 var isMovementAllowed = true
+var isFacingRight = true
 
 func _physics_process(delta):
 	if isMovementAllowed == false:
@@ -24,5 +25,20 @@ func _physics_process(delta):
 		motion.y = clamp(motion.y + SPEED, 0, MAX_SPEED)
 	else: 
 		motion.y = lerp(motion.y, 0, INERTIA)
+		
+	if abs(motion.x) - 5.0 > 0 || abs(motion.y) - 5.0 > 0:
+		playAnimation("moving")
+		if motion.x > 0:
+			isFacingRight = true
+		elif motion.x < 0:
+			isFacingRight = false
+	else:
+		playAnimation("idle")
+		
+	$AnimatedSprite.flip_h = !isFacingRight
 
 	move_and_slide(motion)
+
+func playAnimation(name):
+	if $AnimatedSprite.animation != name:
+		$AnimatedSprite.play(name)

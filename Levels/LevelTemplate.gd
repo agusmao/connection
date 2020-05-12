@@ -5,7 +5,7 @@ export(String) var nextLevel = "1"
 const ConnectionTypes = preload("res://Globals/ConnectionTypes.gd").ConnectionTypes
 const CONECTION_COLOR = "1f62ff"
 const CONECTION_BLOCKER_COLOR = "fa160a"
-const MAX_DISTANCE = 600
+const MAX_DISTANCE = 300
 const WIRE_WIDTH = 4
 
 var connected_nodes = []
@@ -153,13 +153,15 @@ func _draw():
 
 func drawConnection(pos1, pos2):
 	var distance = pos1.distance_to(pos2)
-	var lineWidth = clamp((MAX_DISTANCE/(distance * 2) ) * WIRE_WIDTH, 0.2, WIRE_WIDTH * 4)
+	var currentWidth = WIRE_WIDTH + WIRE_WIDTH * abs( cos( OS.get_ticks_msec() / 100 ) )
+	var lineWidth = clamp((MAX_DISTANCE/(distance * 2) ) * currentWidth, 0.2, WIRE_WIDTH * 4)
 	draw_line(pos1, pos2, CONECTION_COLOR, lineWidth)
 	
 func drawBlockerConnection(pos1, pos2):
 	var distance = pos1.distance_to(pos2)
 	if distance > 0:
-		var lineWidth = clamp((MAX_DISTANCE/(distance * 2) ) * WIRE_WIDTH, 0.2, WIRE_WIDTH * 4)
+		var currentWidth = WIRE_WIDTH + WIRE_WIDTH * abs( cos( OS.get_ticks_msec() / 100 ) )
+		var lineWidth = clamp((MAX_DISTANCE/(distance * 2) ) * currentWidth, 0.2, WIRE_WIDTH * 4)
 		draw_line(pos1, pos2, CONECTION_BLOCKER_COLOR, lineWidth)
 
 func _on_NextLevelButton_pressed() -> void:

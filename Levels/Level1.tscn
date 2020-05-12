@@ -27,7 +27,7 @@ position = Vector2( 406.138, 95.0497 )
 position = Vector2( 273.345, -155.241 )
 
 [node name="NormalNode4" parent="Nodes" index="4" instance=ExtResource( 2 )]
-position = Vector2( 624.626, -157.014 )
+position = Vector2( 615.353, -144.651 )
 
 [node name="TargetNode" parent="Nodes" index="5" instance=ExtResource( 4 )]
 position = Vector2( 995.722, -54.7437 )

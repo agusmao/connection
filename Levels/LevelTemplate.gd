@@ -8,9 +8,13 @@ const CONECTION_BLOCKER_COLOR = "fa160a"
 const MAX_DISTANCE = 300
 const WIRE_WIDTH = 4
 
+var isGameOver = false
 var connected_nodes = []
 var playerIsConnected = false
 var blockers_connected = []
+
+var timeElapseSinceGameOver = 0.0
+var isShowingNextLevelUI = false
 
 func _ready():
 	add_to_group("GameController")
@@ -21,6 +25,14 @@ func _ready():
 				blockers_connected.append([child1, child2])
 
 func _process(delta):
+	# Gives a small delay after connecting the lamp so the animation appears
+	if isGameOver && timeElapseSinceGameOver > 3 && isShowingNextLevelUI == false:
+		# Loads next level UI
+		get_node("CanvasLayer/EndGameUI").show()
+		isShowingNextLevelUI = true
+	elif isGameOver:
+		timeElapseSinceGameOver += delta
+	
 	update()
 	
 	# if distance from the last node and the player it is too far, cut connection with the player
@@ -107,6 +119,7 @@ func addConnection(node, type):
 			connected_nodes.append(node)
 		elif type == ConnectionTypes.GOAL && playerIsConnected:
 			connected_nodes.append(node)
+			node.toggleConnection(false)
 			# If we reach the end level when connected
 			endGame()
 	else:
@@ -128,7 +141,7 @@ func addConnection(node, type):
 
 func endGame():
 	# Calls the endgame UI
-	get_node("CanvasLayer/EndGameUI").show()
+	isGameOver = true
 	# Disable the users input
 	get_node("Player").isMovementAllowed = false
 

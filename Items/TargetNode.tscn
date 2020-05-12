@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Items/ConnectionNode.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Items/TargetNode.gd" type="Script" id=2]
-[ext_resource path="res://Animations/BlueNode.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://assets/images/Lamp.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "on",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ) ],
+"loop": true,
+"name": "off",
+"speed": 5.0
+} ]
 
 [node name="TargetNode" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -11,5 +34,6 @@ script = ExtResource( 2 )
 visible = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
-frames = ExtResource( 3 )
-animation = "deactivated"
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+animation = "off"

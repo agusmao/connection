@@ -4,11 +4,11 @@
 [ext_resource path="res://source/StartButton.gd" type="Script" id=2]
 [ext_resource path="res://source/FadeIn.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 1 )
 
@@ -58,7 +58,7 @@ margin_left = 244.381
 margin_top = 53.0209
 margin_right = -241.651
 margin_bottom = -55.179
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Start game"
 script = ExtResource( 2 )
 __meta__ = {
@@ -73,7 +73,7 @@ margin_left = 80.0
 margin_top = 64.0607
 margin_right = -80.0
 margin_bottom = -62.3393
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Game Name Here!"
 align = 1
 __meta__ = {

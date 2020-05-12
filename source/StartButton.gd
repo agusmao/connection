@@ -17,4 +17,4 @@ func _ready() -> void:
 
 func _on_Fade_In_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	if anim_name == "fade_in":
-		get_tree().change_scene("res://Levels/LevelTemplate.tscn")
+		get_tree().change_scene("res://Levels/Level1.tscn")

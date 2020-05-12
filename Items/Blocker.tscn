@@ -8,7 +8,6 @@
 [node name="Blocker" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 4
-motion/sync_to_physics = true
 script = ExtResource( 2 )
 
 [node name="RedNode" type="Sprite" parent="."]
@@ -18,3 +17,7 @@ texture = ExtResource( 1 )
 rotation = -0.787868
 scale = Vector2( 1.2186, 1.17232 )
 shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

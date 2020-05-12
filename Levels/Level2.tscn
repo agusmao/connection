@@ -44,9 +44,17 @@ scale = Vector2( 1.3, 1.3 )
 id = 4
 
 [node name="Blocker2" parent="Blockers" index="2" instance=ExtResource( 5 )]
-position = Vector2( -176.706, -90.641 )
+position = Vector2( -223.984, -58.3341 )
 scale = Vector2( 1.3, 1.3 )
 id = 1
+wait_time = 1.4
+walk_speed = 0.2
+
+[node name="Position2D" type="Position2D" parent="Blockers/Blocker2" index="2"]
+position = Vector2( 58.1888, -15.7595 )
+
+[node name="Position2D2" type="Position2D" parent="Blockers/Blocker2" index="3"]
+position = Vector2( 0.606171, 7.62939e-06 )
 
 [node name="Blocker5" parent="Blockers" index="3" instance=ExtResource( 5 )]
 position = Vector2( -152.906, -143.001 )

@@ -36,7 +36,6 @@ func _ready():
 func _physics_process(delta):
 	if len(positions) > 1 and not blocked:
 		var distance = nextPosition.distance_to(global_position)
-		print(distance)
 		if distance < minimal_distance:
 			blocked = true
 			current_goal = (current_goal + 1) % len(positions)
@@ -46,7 +45,13 @@ func _physics_process(delta):
 		motion = (nextPosition - global_position).normalized() * (MAX_SPEED * walk_speed)
 		move_and_slide(motion)
 		
-
+func animateAbsorving():
+	if $AnimatedSprite.animation != "absorving":
+		$AnimatedSprite.play("absorving")
 
 func _on_Timer_timeout():
 	blocked = false
+
+func _on_AnimatedSprite_animation_finished() -> void:
+	if $AnimatedSprite.animation == "absorving":
+		$AnimatedSprite.play("off")

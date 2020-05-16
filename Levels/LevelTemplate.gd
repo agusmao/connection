@@ -75,10 +75,13 @@ func haveBlocker(pos1, pos2):
 			
 			var res = Geometry.line_intersects_line_2d(b1pos, b2pos - b1pos, pos1, pos2 - pos1)
 			if res and isPosInLine(res, b1pos, b2pos) and isPosInLine(res, pos1, pos2):
+				c[0].animateAbsorving()
+				c[1].animateAbsorving()
 				return true
 
 		return false
 	else:
+		obstacle.collider.animateAbsorving()
 		return true
 
 func isPosInLine(pos, from, to):

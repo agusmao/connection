@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/fonts/collegiate/CollegiateInsideFLF.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://source/ThanksForPlaying.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/Robot.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 2 ), SubResource( 3 ), SubResource( 3 ), SubResource( 2 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 295.328
+margin_top = 325.039
+margin_right = 726.328
+margin_bottom = 366.039
+custom_fonts/font = SubResource( 1 )
+text = "Thanks for playing!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 404.312
+margin_top = 445.665
+margin_right = 612.312
+margin_bottom = 465.665
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 152.741, 358.856 )
+scale = Vector2( 6.21726, 5.38912 )
+frames = SubResource( 6 )
+frame = 3
+playing = true
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

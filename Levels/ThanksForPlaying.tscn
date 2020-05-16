@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/collegiate/CollegiateInsideFLF.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://source/ThanksForPlaying.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 295.328
+margin_top = 325.039
+margin_right = 726.328
+margin_bottom = 366.039
+custom_fonts/font = SubResource( 1 )
+text = "Thanks for playing!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 404.312
+margin_top = 445.665
+margin_right = 612.312
+margin_bottom = 465.665
+text = "Main Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

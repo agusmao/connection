@@ -16,5 +16,4 @@ anims/energized = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 frames = ExtResource( 3 )
 animation = "energized"
-frame = 1
 playing = true

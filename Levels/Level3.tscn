@@ -9,46 +9,43 @@
 [node name="Level3" instance=ExtResource( 1 )]
 nextLevel = "Level4.tscn"
 
-[node name="Player" parent="." index="1"]
-position = Vector2( -35.1617, -192.465 )
-
-[node name="SourceNode" parent="Nodes" index="0" instance=ExtResource( 3 )]
+[node name="SourceNode" parent="YSort/Nodes" index="0" instance=ExtResource( 3 )]
 position = Vector2( -50.1584, 3.98077 )
 
-[node name="NormalNode" parent="Nodes" index="1" instance=ExtResource( 4 )]
+[node name="NormalNode" parent="YSort/Nodes" index="1" instance=ExtResource( 4 )]
 position = Vector2( -46.269, 172.908 )
 
-[node name="NormalNode2" parent="Nodes" index="2" instance=ExtResource( 4 )]
+[node name="NormalNode2" parent="YSort/Nodes" index="2" instance=ExtResource( 4 )]
 position = Vector2( -283.57, 159.477 )
 
-[node name="NormalNode5" parent="Nodes" index="3" instance=ExtResource( 4 )]
+[node name="NormalNode5" parent="YSort/Nodes" index="3" instance=ExtResource( 4 )]
 position = Vector2( -281.773, 10.3724 )
 
-[node name="NormalNode4" parent="Nodes" index="4" instance=ExtResource( 4 )]
+[node name="NormalNode4" parent="YSort/Nodes" index="4" instance=ExtResource( 4 )]
 position = Vector2( 266.568, 157.788 )
 
-[node name="TargetNode" parent="Nodes" index="5" instance=ExtResource( 6 )]
+[node name="TargetNode" parent="YSort/Nodes" index="5" instance=ExtResource( 6 )]
 position = Vector2( 267.248, 3.24312 )
 
-[node name="Blocker" parent="Blockers" index="0" instance=ExtResource( 5 )]
+[node name="Blocker" parent="YSort/Blockers" index="0" instance=ExtResource( 5 )]
 position = Vector2( 102.105, -43.4959 )
 scale = Vector2( 1.3, 1.3 )
 id = 2
 connected_to = 4
 
-[node name="Blocker4" parent="Blockers" index="1" instance=ExtResource( 5 )]
+[node name="Blocker4" parent="YSort/Blockers" index="1" instance=ExtResource( 5 )]
 position = Vector2( 101.484, 64.448 )
 scale = Vector2( 1.3, 1.3 )
 id = 4
 connected_to = 3
 
-[node name="Blocker2" parent="Blockers" index="2" instance=ExtResource( 5 )]
+[node name="Blocker2" parent="YSort/Blockers" index="2" instance=ExtResource( 5 )]
 position = Vector2( -184.108, -42.525 )
 scale = Vector2( 1.3, 1.3 )
 id = 1
 connected_to = 2
 
-[node name="Blocker3" parent="Blockers" index="3" instance=ExtResource( 5 )]
+[node name="Blocker3" parent="YSort/Blockers" index="3" instance=ExtResource( 5 )]
 position = Vector2( -178.782, 65.7085 )
 scale = Vector2( 1.3, 1.3 )
 id = 3

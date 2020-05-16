@@ -34,11 +34,16 @@ func _ready():
 	blocked = false
 
 func _physics_process(delta):
+	var newIndex
 	if len(positions) > 1 and not blocked:
 		var distance = nextPosition.distance_to(global_position)
 		if distance < minimal_distance:
 			blocked = true
-			current_goal = (current_goal + 1) % len(positions)
+			newIndex = (current_goal + 1) % len(positions)
+			if newIndex < current_goal:
+				positions.invert()
+				
+			current_goal = newIndex
 			nextPosition = positions[current_goal]
 			$Timer.start()
 		

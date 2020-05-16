@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Blocker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Items/TargetNode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Items/SourceNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Items/NormalNode.tscn" type="PackedScene" id=5]
+
+[node name="LevelTemplate" instance=ExtResource( 1 )]
+
+[node name="Player" parent="." index="1"]
+position = Vector2( -35.7862, 128.234 )
+
+[node name="TargetNode" parent="Nodes" index="0" instance=ExtResource( 3 )]
+position = Vector2( 5.96437, -102.171 )
+
+[node name="SourceNode" parent="Nodes" index="1" instance=ExtResource( 4 )]
+position = Vector2( -27.8337, 7.9525 )
+
+[node name="NormalNode" parent="Nodes" index="2" instance=ExtResource( 5 )]
+position = Vector2( 53.6793, 152.091 )
+
+[node name="NormalNode2" parent="Nodes" index="3" instance=ExtResource( 5 )]
+position = Vector2( 265.415, 159.05 )
+
+[node name="NormalNode3" parent="Nodes" index="4" instance=ExtResource( 5 )]
+position = Vector2( 401.601, 95.4299 )
+
+[node name="NormalNode4" parent="Nodes" index="5" instance=ExtResource( 5 )]
+position = Vector2( 402.595, -19.8812 )
+
+[node name="NormalNode5" parent="Nodes" index="6" instance=ExtResource( 5 )]
+position = Vector2( 283.308, -124.258 )
+
+[node name="NormalNode6" parent="Nodes" index="7" instance=ExtResource( 5 )]
+position = Vector2( 166.008, -138.175 )
+
+[node name="Blocker" parent="Blockers" index="0" instance=ExtResource( 2 )]
+position = Vector2( 113.292, -84.1785 )
+id = 1
+connected_to = 2
+
+[node name="Position2D" type="Position2D" parent="Blockers/Blocker" index="3"]
+position = Vector2( -4.97029, -94.4359 )
+
+[node name="Position2D2" type="Position2D" parent="Blockers/Blocker" index="4"]
+
+[node name="Blocker2" parent="Blockers" index="1" instance=ExtResource( 2 )]
+position = Vector2( 82.5072, -43.7387 )
+id = 2
+connected_to = 3
+
+[node name="Blocker3" parent="Blockers" index="2" instance=ExtResource( 2 )]
+position = Vector2( -84.4953, -42.7447 )
+id = 3
+connected_to = 4
+
+[node name="Blocker4" parent="Blockers" index="3" instance=ExtResource( 2 )]
+position = Vector2( -70.5784, -178.931 )
+id = 4
+
+[node name="Blocker5" parent="Blockers" index="4" instance=ExtResource( 2 )]
+position = Vector2( 139.109, 105.371 )
+id = 5
+wait_time = 0.1
+walk_speed = 0.5
+
+[node name="Position2D" type="Position2D" parent="Blockers/Blocker5" index="3"]
+
+[node name="Position2D2" type="Position2D" parent="Blockers/Blocker5" index="4"]
+position = Vector2( -39.7625, -8.94656 )
+
+[node name="Position2D3" type="Position2D" parent="Blockers/Blocker5" index="5"]
+position = Vector2( -85.4893, -38.7684 )
+
+[node name="Position2D4" type="Position2D" parent="Blockers/Blocker5" index="6"]
+position = Vector2( -88.4715, -70.5784 )
+
+[node name="Position2D5" type="Position2D" parent="Blockers/Blocker5" index="7"]
+position = Vector2( -60.6378, -102.388 )
+
+[node name="Blocker6" parent="Blockers" index="5" instance=ExtResource( 2 )]
+position = Vector2( 417.447, -144.139 )
+id = 6
+wait_time = 2.0
+walk_speed = 1.0
+
+[node name="Position2D" type="Position2D" parent="Blockers/Blocker6" index="3"]
+position = Vector2( -160.044, 162.032 )
+
+[node name="Position2D2" type="Position2D" parent="Blockers/Blocker6" index="4"]
+position = Vector2( -3.05176e-05, 0 )

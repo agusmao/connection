@@ -7,143 +7,143 @@
 [ext_resource path="res://Items/TargetNode.tscn" type="PackedScene" id=6]
 
 [node name="Level2" instance=ExtResource( 1 )]
-nextLevel = "Level1.tscn"
+nextLevel = "Level5.tscn"
 
 [node name="TileMapDetails" parent="." index="1"]
 tile_data = PoolIntArray( -458759, 1, 0, -458755, 1, 0, -524286, 1, 0, -524282, 1, 0 )
 
-[node name="SourceNode" parent="Nodes" index="0" instance=ExtResource( 3 )]
+[node name="SourceNode" parent="YSort/Nodes" index="0" instance=ExtResource( 3 )]
 position = Vector2( -343.759, -129.634 )
 
-[node name="NormalNode" parent="Nodes" index="1" instance=ExtResource( 4 )]
+[node name="NormalNode" parent="YSort/Nodes" index="1" instance=ExtResource( 4 )]
 position = Vector2( -128.899, 0.615601 )
 
-[node name="NormalNode6" parent="Nodes" index="2" instance=ExtResource( 4 )]
+[node name="NormalNode6" parent="YSort/Nodes" index="2" instance=ExtResource( 4 )]
 position = Vector2( -130.657, -141.789 )
 
-[node name="NormalNode3" parent="Nodes" index="3" instance=ExtResource( 4 )]
+[node name="NormalNode3" parent="YSort/Nodes" index="3" instance=ExtResource( 4 )]
 position = Vector2( -104.286, 167.634 )
 
-[node name="NormalNode2" parent="Nodes" index="4" instance=ExtResource( 4 )]
+[node name="NormalNode2" parent="YSort/Nodes" index="4" instance=ExtResource( 4 )]
 position = Vector2( -336.313, 178.816 )
 
-[node name="NormalNode5" parent="Nodes" index="5" instance=ExtResource( 4 )]
+[node name="NormalNode5" parent="YSort/Nodes" index="5" instance=ExtResource( 4 )]
 position = Vector2( -343.306, -10.7246 )
 
-[node name="NormalNode4" parent="Nodes" index="6" instance=ExtResource( 4 )]
+[node name="NormalNode4" parent="YSort/Nodes" index="6" instance=ExtResource( 4 )]
 position = Vector2( 124.163, 3.07646 )
 
-[node name="NormalNode10" parent="Nodes" index="7" instance=ExtResource( 4 )]
+[node name="NormalNode10" parent="YSort/Nodes" index="7" instance=ExtResource( 4 )]
 position = Vector2( 350.956, -146.361 )
 
-[node name="NormalNode8" parent="Nodes" index="8" instance=ExtResource( 4 )]
+[node name="NormalNode8" parent="YSort/Nodes" index="8" instance=ExtResource( 4 )]
 position = Vector2( 125.921, 166.578 )
 
-[node name="NormalNode9" parent="Nodes" index="9" instance=ExtResource( 4 )]
+[node name="NormalNode9" parent="YSort/Nodes" index="9" instance=ExtResource( 4 )]
 position = Vector2( 372.053, 168.337 )
 
-[node name="NormalNode7" parent="Nodes" index="10" instance=ExtResource( 4 )]
+[node name="NormalNode7" parent="YSort/Nodes" index="10" instance=ExtResource( 4 )]
 position = Vector2( 125.921, -141.087 )
 
-[node name="TargetNode" parent="Nodes" index="11" instance=ExtResource( 6 )]
+[node name="TargetNode" parent="YSort/Nodes" index="11" instance=ExtResource( 6 )]
 position = Vector2( 356.91, 1.48503 )
 
-[node name="Blocker" parent="Blockers" index="0" instance=ExtResource( 5 )]
+[node name="Blocker" parent="YSort/Blockers" index="0" instance=ExtResource( 5 )]
 position = Vector2( -416.53, -194.691 )
 scale = Vector2( 1.3, 1.3 )
 id = 2
 connected_to = 4
 
-[node name="Blocker4" parent="Blockers" index="1" instance=ExtResource( 5 )]
+[node name="Blocker4" parent="YSort/Blockers" index="1" instance=ExtResource( 5 )]
 position = Vector2( -257.165, -196.265 )
 scale = Vector2( 1.3, 1.3 )
 id = 4
 connected_to = 3
 
-[node name="Blocker2" parent="Blockers" index="2" instance=ExtResource( 5 )]
+[node name="Blocker2" parent="YSort/Blockers" index="2" instance=ExtResource( 5 )]
 position = Vector2( -416.175, 62.9602 )
 scale = Vector2( 1.3, 1.3 )
 id = 1
 connected_to = 2
 
-[node name="Blocker7" parent="Blockers" index="3" instance=ExtResource( 5 )]
+[node name="Blocker7" parent="YSort/Blockers" index="3" instance=ExtResource( 5 )]
 position = Vector2( -414.417, 224.704 )
 scale = Vector2( 1.3, 1.3 )
 id = 7
 connected_to = 1
 
-[node name="Blocker3" parent="Blockers" index="4" instance=ExtResource( 5 )]
+[node name="Blocker3" parent="YSort/Blockers" index="4" instance=ExtResource( 5 )]
 position = Vector2( -254.38, -64.3898 )
 scale = Vector2( 1.3, 1.3 )
 id = 3
 
-[node name="Blocker6" parent="Blockers" index="5" instance=ExtResource( 5 )]
+[node name="Blocker6" parent="YSort/Blockers" index="5" instance=ExtResource( 5 )]
 position = Vector2( -252.622, 65.7085 )
 scale = Vector2( 1.3, 1.3 )
 id = 6
 connected_to = 3
 
-[node name="Blocker5" parent="Blockers" index="6" instance=ExtResource( 5 )]
+[node name="Blocker5" parent="YSort/Blockers" index="6" instance=ExtResource( 5 )]
 position = Vector2( -1.21527, -64.3898 )
 scale = Vector2( 1.3, 1.3 )
 id = 5
 connected_to = 3
 
-[node name="Blocker10" parent="Blockers" index="7" instance=ExtResource( 5 )]
+[node name="Blocker10" parent="YSort/Blockers" index="7" instance=ExtResource( 5 )]
 position = Vector2( -2.97333, -190.972 )
 scale = Vector2( 1.3, 1.3 )
 id = 10
 connected_to = 4
 
-[node name="Blocker14" parent="Blockers" index="8" instance=ExtResource( 5 )]
+[node name="Blocker14" parent="YSort/Blockers" index="8" instance=ExtResource( 5 )]
 position = Vector2( 255.465, -198.004 )
 scale = Vector2( 1.3, 1.3 )
 id = 14
 connected_to = 10
 
-[node name="Blocker17" parent="Blockers" index="9" instance=ExtResource( 5 )]
+[node name="Blocker17" parent="YSort/Blockers" index="9" instance=ExtResource( 5 )]
 position = Vector2( 417.209, -194.488 )
 scale = Vector2( 1.3, 1.3 )
 id = 17
 connected_to = 14
 
-[node name="Blocker8" parent="Blockers" index="10" instance=ExtResource( 5 )]
+[node name="Blocker8" parent="YSort/Blockers" index="10" instance=ExtResource( 5 )]
 position = Vector2( -4.73145, 63.9504 )
 scale = Vector2( 1.3, 1.3 )
 id = 8
 connected_to = 5
 
-[node name="Blocker11" parent="Blockers" index="11" instance=ExtResource( 5 )]
+[node name="Blocker11" parent="YSort/Blockers" index="11" instance=ExtResource( 5 )]
 position = Vector2( 257.223, 65.7085 )
 scale = Vector2( 1.3, 1.3 )
 id = 11
 connected_to = 12
 
-[node name="Blocker13" parent="Blockers" index="12" instance=ExtResource( 5 )]
+[node name="Blocker13" parent="YSort/Blockers" index="12" instance=ExtResource( 5 )]
 position = Vector2( 257.223, -62.6318 )
 scale = Vector2( 1.3, 1.3 )
 id = 13
 connected_to = 11
 
-[node name="Blocker12" parent="Blockers" index="13" instance=ExtResource( 5 )]
+[node name="Blocker12" parent="YSort/Blockers" index="13" instance=ExtResource( 5 )]
 position = Vector2( 415.451, 65.7085 )
 scale = Vector2( 1.3, 1.3 )
 id = 12
 connected_to = 17
 
-[node name="Blocker9" parent="Blockers" index="14" instance=ExtResource( 5 )]
+[node name="Blocker9" parent="YSort/Blockers" index="14" instance=ExtResource( 5 )]
 position = Vector2( 0.542786, 225.694 )
 scale = Vector2( 1.3, 1.3 )
 id = 9
 connected_to = 7
 
-[node name="Blocker15" parent="Blockers" index="15" instance=ExtResource( 5 )]
+[node name="Blocker15" parent="YSort/Blockers" index="15" instance=ExtResource( 5 )]
 position = Vector2( 262.498, 229.21 )
 scale = Vector2( 1.3, 1.3 )
 id = 15
 connected_to = 9
 
-[node name="Blocker16" parent="Blockers" index="16" instance=ExtResource( 5 )]
+[node name="Blocker16" parent="YSort/Blockers" index="16" instance=ExtResource( 5 )]
 position = Vector2( 417.209, 227.452 )
 scale = Vector2( 1.3, 1.3 )
 id = 16

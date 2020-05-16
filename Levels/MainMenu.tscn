@@ -64,7 +64,6 @@ __meta__ = {
 position = Vector2( 536.571, 241.118 )
 scale = Vector2( 7.39092, 6.85827 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="StartButton" type="Button" parent="."]

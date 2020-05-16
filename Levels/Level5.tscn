@@ -7,6 +7,7 @@
 [ext_resource path="res://Items/NormalNode.tscn" type="PackedScene" id=5]
 
 [node name="LevelTemplate" instance=ExtResource( 1 )]
+nextLevel = "Level6.tscn"
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2( -259.149, 15.0231 )

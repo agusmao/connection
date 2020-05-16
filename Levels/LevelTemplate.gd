@@ -147,6 +147,8 @@ func endGame():
 	isGameOver = true
 	# Disable the users input
 	$YSort/Player.isMovementAllowed = false
+	
+	get_tree().call_group("GameStatus", "finishedLevel")
 
 func _draw():
 	var n1

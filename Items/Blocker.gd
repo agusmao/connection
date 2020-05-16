@@ -18,8 +18,11 @@ var motion
 
 var blocked
 
+var gameIsFinished
+
 func _ready():
-	
+	add_to_group("GameStatus")
+	gameIsFinished = false
 	for child in get_children():
 		if child is Position2D:
 			positions.append(global_position + child.position)
@@ -34,11 +37,16 @@ func _ready():
 	blocked = false
 
 func _physics_process(delta):
-	if len(positions) > 1 and not blocked:
+	var newIndex
+	if len(positions) > 1 and not blocked and not gameIsFinished:
 		var distance = nextPosition.distance_to(global_position)
 		if distance < minimal_distance:
 			blocked = true
-			current_goal = (current_goal + 1) % len(positions)
+			newIndex = (current_goal + 1) % len(positions)
+			if newIndex < current_goal:
+				positions.invert()
+				
+			current_goal = newIndex
 			nextPosition = positions[current_goal]
 			$Timer.start()
 		
@@ -55,3 +63,6 @@ func _on_Timer_timeout():
 func _on_AnimatedSprite_animation_finished() -> void:
 	if $AnimatedSprite.animation == "absorving":
 		$AnimatedSprite.play("off")
+
+func finishedLevel():
+	gameIsFinished = true

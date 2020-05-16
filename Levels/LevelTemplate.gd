@@ -159,20 +159,23 @@ func _draw():
 			n1 = connected_nodes[i]
 			n2 = connected_nodes[i + 1]
 			
-			drawConnection(n1.position, n2.position)
+			
+			
+			drawConnection(n1.global_position, n2.global_position)
 			
 	if connected_nodes.size() > 0 and playerIsConnected:
 		var last_connection = connected_nodes[connected_nodes.size() -1]
-		drawConnection($YSort/Player.position, last_connection.position)
-		
+		drawConnection($YSort/Player.global_position, last_connection.global_position)
+
 	for blockPairs in blockers_connected:
-		drawBlockerConnection(blockPairs[0].position, blockPairs[1].position)
+		drawBlockerConnection(blockPairs[0].global_position, blockPairs[1].global_position)
 		
 
 func drawConnection(pos1, pos2):
 	var distance = pos1.distance_to(pos2)
 	var currentWidth = WIRE_WIDTH + WIRE_WIDTH * abs( cos( OS.get_ticks_msec() / 100 ) )
 	var lineWidth = clamp((MAX_DISTANCE/(distance * 2) ) * currentWidth, 0.2, WIRE_WIDTH * 4)
+	
 	draw_line(pos1, pos2, CONECTION_COLOR, lineWidth)
 	
 func drawBlockerConnection(pos1, pos2):

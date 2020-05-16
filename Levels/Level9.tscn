@@ -1,0 +1,252 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Levels/LevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Blocker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Items/NormalNode.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Items/SourceNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level9.gd" type="Script" id=5]
+[ext_resource path="res://Items/TargetNode.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "rotateLevel"
+length = 20.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Blockers:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 180.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Nodes:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 8, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 180.0, 180.0 ]
+}
+
+[node name="LevelTemplate" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( -393224, 3, 0, -393223, 4, 0, -393222, 4, 0, -393221, 4, 0, -393220, 4, 0, -393219, 4, 0, -393218, 4, 0, -393217, 4, 0, -458752, 4, 0, -458751, 4, 0, -458750, 4, 0, -458749, 4, 0, -458748, 4, 0, -458747, 4, 0, -458746, 4, 0, -458745, 5, 0, -327688, 7, 0, -327687, 2, 0, -327686, 2, 0, -327685, 2, 0, -327684, 2, 0, -327683, 2, 0, -327682, 2, 0, -327681, 2, 0, -393216, 2, 0, -393215, 2, 0, -393214, 2, 0, -393213, 2, 0, -393212, 2, 0, -393211, 2, 0, -393210, 2, 0, -393209, 6, 0, -262152, 7, 0, -262151, 2, 0, -262150, 2, 0, -262149, 2, 0, -262148, 2, 0, -262147, 2, 0, -262146, 2, 0, -262145, 2, 0, -327680, 2, 0, -327679, 2, 0, -327678, 2, 0, -327677, 2, 0, -327676, 2, 0, -327675, 2, 0, -327674, 2, 0, -327673, 6, 0, -196616, 7, 0, -196615, 2, 0, -196614, 2, 0, -196613, 2, 0, -196612, 2, 0, -196611, 2, 0, -196610, 2, 0, -196609, 2, 0, -262144, 2, 0, -262143, 2, 0, -262142, 2, 0, -262141, 2, 0, -262140, 2, 0, -262139, 2, 0, -262138, 2, 0, -262137, 6, 0, -131080, 7, 0, -131079, 2, 0, -131078, 2, 0, -131077, 2, 0, -131076, 2, 0, -131075, 2, 0, -131074, 2, 0, -131073, 2, 0, -196608, 2, 0, -196607, 2, 0, -196606, 2, 0, -196605, 2, 0, -196604, 2, 0, -196603, 2, 0, -196602, 2, 0, -196601, 6, 0, -65544, 7, 0, -65543, 2, 0, -65542, 2, 0, -65541, 2, 0, -65540, 2, 0, -65539, 2, 0, -65538, 2, 0, -65537, 2, 0, -131072, 2, 0, -131071, 2, 0, -131070, 2, 0, -131069, 2, 0, -131068, 2, 0, -131067, 2, 0, -131066, 2, 0, -131065, 6, 0, -8, 7, 0, -7, 2, 0, -6, 2, 0, -5, 2, 0, -4, 2, 0, -3, 2, 0, -2, 2, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, -65532, 2, 0, -65531, 2, 0, -65530, 2, 0, -65529, 6, 0, 65528, 7, 0, 65529, 2, 0, 65530, 2, 0, 65531, 2, 0, 65532, 2, 0, 65533, 2, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0, 7, 6, 0, 131064, 7, 0, 131065, 2, 0, 131066, 2, 0, 131067, 2, 0, 131068, 2, 0, 131069, 2, 0, 131070, 2, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0, 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 6, 0, 196600, 7, 0, 196601, 2, 0, 196602, 2, 0, 196603, 2, 0, 196604, 2, 0, 196605, 2, 0, 196606, 2, 0, 196607, 2, 0, 131072, 2, 0, 131073, 2, 0, 131074, 2, 0, 131075, 2, 0, 131076, 2, 0, 131077, 2, 0, 131078, 2, 0, 131079, 6, 0, 262136, 7, 0, 262137, 2, 0, 262138, 2, 0, 262139, 2, 0, 262140, 2, 0, 262141, 2, 0, 262142, 2, 0, 262143, 2, 0, 196608, 2, 0, 196609, 2, 0, 196610, 2, 0, 196611, 2, 0, 196612, 2, 0, 196613, 2, 0, 196614, 2, 0, 196615, 6, 0, 327672, 7, 0, 327673, 2, 0, 327674, 2, 0, 327675, 2, 0, 327676, 2, 0, 327677, 2, 0, 327678, 2, 0, 327679, 2, 0, 262144, 2, 0, 262145, 2, 0, 262146, 2, 0, 262147, 2, 0, 262148, 2, 0, 262149, 2, 0, 262150, 2, 0, 262151, 6, 0, 393208, 7, 0, 393209, 2, 0, 393210, 2, 0, 393211, 2, 0, 393212, 2, 0, 393213, 2, 0, 393214, 2, 0, 393215, 2, 0, 327680, 2, 0, 327681, 2, 0, 327682, 2, 0, 327683, 2, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327687, 6, 0, 458744, 10, 0, 458745, 8, 0, 458746, 8, 0, 458747, 8, 0, 458748, 8, 0, 458749, 8, 0, 458750, 8, 0, 458751, 8, 0, 393216, 8, 0, 393217, 8, 0, 393218, 8, 0, 393219, 8, 0, 393220, 8, 0, 393221, 8, 0, 393222, 8, 0, 393223, 9, 0 )
+
+[node name="Player" parent="YSort" index="0"]
+position = Vector2( -414.146, -349.182 )
+
+[node name="Nodes" parent="YSort" index="1"]
+rotation = 0.0523599
+
+[node name="SourceNode" parent="YSort/Nodes" index="0" instance=ExtResource( 4 )]
+position = Vector2( -258.503, 2.70685 )
+
+[node name="NormalNode" parent="YSort/Nodes" index="1" instance=ExtResource( 3 )]
+position = Vector2( -205.358, -125.434 )
+
+[node name="NormalNode2" parent="YSort/Nodes" index="2" instance=ExtResource( 3 )]
+position = Vector2( -120.636, -254.831 )
+
+[node name="NormalNode3" parent="YSort/Nodes" index="3" instance=ExtResource( 3 )]
+position = Vector2( 16.7839, -272.356 )
+
+[node name="NormalNode4" parent="YSort/Nodes" index="4" instance=ExtResource( 3 )]
+position = Vector2( 181.829, -223.711 )
+
+[node name="NormalNode5" parent="YSort/Nodes" index="5" instance=ExtResource( 3 )]
+position = Vector2( 262.405, -112.095 )
+
+[node name="NormalNode6" parent="YSort/Nodes" index="6" instance=ExtResource( 3 )]
+position = Vector2( 294.41, 44.567 )
+
+[node name="NormalNode7" parent="YSort/Nodes" index="7" instance=ExtResource( 3 )]
+position = Vector2( 228.619, 180.139 )
+
+[node name="NormalNode8" parent="YSort/Nodes" index="8" instance=ExtResource( 3 )]
+position = Vector2( 118.632, 255.479 )
+
+[node name="NormalNode9" parent="YSort/Nodes" index="9" instance=ExtResource( 3 )]
+position = Vector2( -20.7817, 281.477 )
+
+[node name="NormalNode10" parent="YSort/Nodes" index="10" instance=ExtResource( 3 )]
+position = Vector2( -133.889, 244.051 )
+
+[node name="NormalNode11" parent="YSort/Nodes" index="11" instance=ExtResource( 3 )]
+position = Vector2( -86.4994, 75.7376 )
+
+[node name="NormalNode13" parent="YSort/Nodes" index="12" instance=ExtResource( 3 )]
+position = Vector2( 46.8248, 118.231 )
+
+[node name="NormalNode14" parent="YSort/Nodes" index="13" instance=ExtResource( 3 )]
+position = Vector2( 113.352, 23.6477 )
+
+[node name="NormalNode15" parent="YSort/Nodes" index="14" instance=ExtResource( 3 )]
+position = Vector2( 98.1799, -80.3647 )
+
+[node name="NormalNode16" parent="YSort/Nodes" index="15" instance=ExtResource( 3 )]
+position = Vector2( -10.0316, -123.79 )
+
+[node name="NormalNode12" parent="YSort/Nodes" index="16" instance=ExtResource( 3 )]
+position = Vector2( -220.967, 130.18 )
+
+[node name="TargetNode" parent="YSort/Nodes" index="17" instance=ExtResource( 6 )]
+position = Vector2( -117.19, -21.1714 )
+
+[node name="Blocker" parent="YSort/Blockers" index="0" instance=ExtResource( 2 )]
+position = Vector2( 0, -350 )
+id = 1
+connected_to = -1
+
+[node name="Blocker2" parent="YSort/Blockers" index="1" instance=ExtResource( 2 )]
+position = Vector2( 0, 350 )
+id = 2
+connected_to = -1
+
+[node name="Blocker3" parent="YSort/Blockers" index="2" instance=ExtResource( 2 )]
+position = Vector2( -350, 0 )
+id = 3
+connected_to = -1
+
+[node name="Blocker4" parent="YSort/Blockers" index="3" instance=ExtResource( 2 )]
+position = Vector2( 350, 0 )
+id = 4
+connected_to = -1
+
+[node name="Blocker6" parent="YSort/Blockers" index="4" instance=ExtResource( 2 )]
+position = Vector2( -248.195, 245.756 )
+id = 6
+connected_to = -1
+
+[node name="Blocker7" parent="YSort/Blockers" index="5" instance=ExtResource( 2 )]
+position = Vector2( -136.046, 322.288 )
+id = 7
+connected_to = -1
+
+[node name="Blocker8" parent="YSort/Blockers" index="6" instance=ExtResource( 2 )]
+position = Vector2( 133.111, 324.156 )
+id = 8
+connected_to = -1
+
+[node name="Blocker9" parent="YSort/Blockers" index="7" instance=ExtResource( 2 )]
+position = Vector2( 255.514, 258.006 )
+id = 9
+connected_to = -1
+
+[node name="Blocker10" parent="YSort/Blockers" index="8" instance=ExtResource( 2 )]
+position = Vector2( 333.013, 127.666 )
+id = 10
+connected_to = -1
+
+[node name="Blocker11" parent="YSort/Blockers" index="9" instance=ExtResource( 2 )]
+position = Vector2( 336.536, -122.445 )
+id = 11
+connected_to = -1
+
+[node name="Blocker12" parent="YSort/Blockers" index="10" instance=ExtResource( 2 )]
+position = Vector2( 251.991, -266.876 )
+id = 12
+connected_to = -1
+
+[node name="Blocker13" parent="YSort/Blockers" index="11" instance=ExtResource( 2 )]
+position = Vector2( 132.22, -333.807 )
+id = 13
+connected_to = -1
+
+[node name="Blocker14" parent="YSort/Blockers" index="12" instance=ExtResource( 2 )]
+position = Vector2( -135.505, -330.285 )
+id = 14
+connected_to = -1
+
+[node name="Blocker15" parent="YSort/Blockers" index="13" instance=ExtResource( 2 )]
+position = Vector2( -234.141, -242.217 )
+id = 15
+connected_to = -1
+
+[node name="Blocker16" parent="YSort/Blockers" index="14" instance=ExtResource( 2 )]
+position = Vector2( -304.595, -136.536 )
+id = 16
+connected_to = -1
+
+[node name="Blocker17" parent="YSort/Blockers" index="15" instance=ExtResource( 2 )]
+position = Vector2( -320.371, 129.648 )
+id = 17
+connected_to = -1
+
+[node name="Blocker18" parent="YSort/Blockers" index="16" instance=ExtResource( 2 )]
+position = Vector2( -172.247, 55.1659 )
+id = 18
+connected_to = 17
+
+[node name="Blocker19" parent="YSort/Blockers" index="17" instance=ExtResource( 2 )]
+position = Vector2( -189.282, -65.9569 )
+id = 19
+connected_to = 18
+
+[node name="Blocker20" parent="YSort/Blockers" index="18" instance=ExtResource( 2 )]
+position = Vector2( -72.4418, -178.238 )
+id = 20
+connected_to = 19
+
+[node name="Blocker21" parent="YSort/Blockers" index="19" instance=ExtResource( 2 )]
+position = Vector2( 71.3235, -175.498 )
+id = 21
+connected_to = 20
+
+[node name="Blocker22" parent="YSort/Blockers" index="20" instance=ExtResource( 2 )]
+position = Vector2( 193.647, -52.611 )
+id = 22
+connected_to = 21
+
+[node name="Blocker23" parent="YSort/Blockers" index="21" instance=ExtResource( 2 )]
+position = Vector2( 182.457, 91.6854 )
+id = 23
+connected_to = 22
+
+[node name="Blocker24" parent="YSort/Blockers" index="22" instance=ExtResource( 2 )]
+position = Vector2( 104.433, 185.569 )
+id = 24
+connected_to = 23
+
+[node name="Blocker25" parent="YSort/Blockers" index="23" instance=ExtResource( 2 )]
+position = Vector2( -9.12726, 189.704 )
+id = 25
+connected_to = 24
+
+[node name="Blocker26" parent="YSort/Blockers" index="24" instance=ExtResource( 2 )]
+position = Vector2( -115.667, 149.694 )
+id = 26
+connected_to = 25
+
+[node name="Blocker27" parent="YSort/Blockers" index="25" instance=ExtResource( 2 )]
+position = Vector2( 3.66412, -44.6452 )
+id = 27
+connected_to = 18
+
+[node name="Blocker28" parent="YSort/Blockers" index="26" instance=ExtResource( 2 )]
+position = Vector2( -40.6589, 3.08731 )
+id = 28
+connected_to = 27
+
+[node name="Blocker29" parent="YSort/Blockers" index="27" instance=ExtResource( 2 )]
+position = Vector2( 12.1877, 26.9536 )
+id = 29
+connected_to = 28
+
+[node name="Blocker30" parent="YSort/Blockers" index="28" instance=ExtResource( 2 )]
+position = Vector2( 44.5776, -8.84579 )
+id = 30
+connected_to = 29
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort" index="3"]
+autoplay = "rotateLevel"
+anims/rotateLevel = SubResource( 1 )

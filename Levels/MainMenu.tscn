@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/collegiate/CollegiateInsideFLF.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://source/StartButton.gd" type="Script" id=2]
 [ext_resource path="res://source/FadeIn.gd" type="Script" id=3]
 [ext_resource path="res://assets/images/Logo.png" type="Texture" id=4]
+[ext_resource path="res://source/Logo.gd" type="Script" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
-region = Rect2( 0, 64, 100, 64 )
+region = Rect2( 0, 0, 100, 64 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "sparking"
@@ -86,6 +87,7 @@ margin_right = -16.704
 margin_bottom = -0.200012
 texture = SubResource( 1 )
 expand = true
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -133,7 +135,7 @@ anchor_bottom = 0.992
 margin_right = 0.191956
 margin_bottom = -0.200012
 mouse_filter = 2
-color = Color( 1, 1, 1, 0 )
+color = Color( 0.5, 0.5, 0.5, 0.5 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

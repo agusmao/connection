@@ -60,6 +60,6 @@ __meta__ = {
 position = Vector2( 152.741, 358.856 )
 scale = Vector2( 6.21726, 5.38912 )
 frames = SubResource( 6 )
-frame = 3
+frame = 4
 playing = true
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

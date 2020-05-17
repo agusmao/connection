@@ -39,6 +39,7 @@ tracks/1/keys = {
 
 [node name="LevelTemplate" instance=ExtResource( 1 )]
 script = ExtResource( 6 )
+nextLevel = "Level9.tscn"
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2( 0, -70 )
@@ -89,22 +90,27 @@ id = 4
 connected_to = 1
 
 [node name="Blocker" parent="YSort/Blockers" index="4" instance=ExtResource( 2 )]
-position = Vector2( -154.042, 121.84 )
+position = Vector2( -158.61, 124.124 )
 id = -1
 
-[node name="Blocker5" parent="YSort/Blockers" index="5" instance=ExtResource( 2 )]
+[node name="Blocker9" parent="YSort/Blockers" index="5" instance=ExtResource( 2 )]
+position = Vector2( -139.576, 106.613 )
+id = 9
+connected_to = -2
+
+[node name="Blocker5" parent="YSort/Blockers" index="6" instance=ExtResource( 2 )]
 position = Vector2( -3.30931, 0.560837 )
 id = -1
 
-[node name="Blocker6" parent="YSort/Blockers" index="6" instance=ExtResource( 2 )]
+[node name="Blocker6" parent="YSort/Blockers" index="7" instance=ExtResource( 2 )]
 position = Vector2( -37.9604, -35.8228 )
 id = -1
 
-[node name="Blocker7" parent="YSort/Blockers" index="7" instance=ExtResource( 2 )]
+[node name="Blocker7" parent="YSort/Blockers" index="8" instance=ExtResource( 2 )]
 position = Vector2( 34.8069, -27.16 )
 id = -1
 
-[node name="Blocker8" parent="YSort/Blockers" index="8" instance=ExtResource( 2 )]
+[node name="Blocker8" parent="YSort/Blockers" index="9" instance=ExtResource( 2 )]
 position = Vector2( 20.9465, 47.3399 )
 id = -1
 

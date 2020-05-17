@@ -61,20 +61,20 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 536.571, 241.118 )
-scale = Vector2( 7.39092, 6.85827 )
+position = Vector2( 519.759, 204.154 )
+scale = Vector2( 4, 4 )
 frames = SubResource( 3 )
 playing = true
 
 [node name="StartButton" type="Button" parent="."]
 anchor_left = 0.041
-anchor_top = 0.747
-anchor_right = 0.965
-anchor_bottom = 0.907
-margin_left = 254.981
-margin_top = 28.8718
-margin_right = -237.195
-margin_bottom = -36.1281
+anchor_top = 0.614
+anchor_right = 0.959
+anchor_bottom = 0.846
+margin_left = 244.381
+margin_top = 53.0209
+margin_right = -241.651
+margin_bottom = -55.179
 custom_fonts/font = SubResource( 4 )
 text = "Start game"
 script = ExtResource( 2 )
@@ -100,7 +100,6 @@ __meta__ = {
 }
 
 [node name="FadeIn" type="ColorRect" parent="."]
-visible = false
 anchor_right = 0.992
 anchor_bottom = 0.992
 margin_right = 0.191956

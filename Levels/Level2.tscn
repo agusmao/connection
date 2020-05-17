@@ -9,6 +9,9 @@
 [node name="Level2" instance=ExtResource( 1 )]
 nextLevel = "Level3.tscn"
 
+[node name="Player" parent="YSort" index="0"]
+position = Vector2( -300.938, -72.8768 )
+
 [node name="SourceNode" parent="YSort/Nodes" index="0" instance=ExtResource( 3 )]
 position = Vector2( -250.025, -151.471 )
 

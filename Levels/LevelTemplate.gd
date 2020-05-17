@@ -70,8 +70,8 @@ func haveBlocker(pos1, pos2):
 	
 	if not obstacle:
 		for c in blockers_connected:
-			var b1pos = c[0].position
-			var b2pos = c[1].position
+			var b1pos = c[0].global_position
+			var b2pos = c[1].global_position
 			
 			var res = Geometry.line_intersects_line_2d(b1pos, b2pos - b1pos, pos1, pos2 - pos1)
 			if res and isPosInLine(res, b1pos, b2pos) and isPosInLine(res, pos1, pos2):

@@ -7,7 +7,7 @@
 [ext_resource path="res://Items/Blocker.tscn" type="PackedScene" id=5]
 
 [node name="LevelTemplate" instance=ExtResource( 1 )]
-nextLevel = "Level8.tscn"
+nextLevel = "Level4.tscn"
 
 [node name="Player" parent="YSort" index="0"]
 position = Vector2( -404.324, -126.215 )
